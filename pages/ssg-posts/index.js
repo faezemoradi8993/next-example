@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 
-
 export async function getStaticProps() {
   let res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
   let data = await res.json();
@@ -21,7 +20,7 @@ export default function Ssg({ data }) {
         </h1>
         <ul>
           {data?.map((p) => (
-            <li key={p.id}  className="hover:text-pink-500 text-center">
+            <li key={p.id} className="hover:text-pink-500 text-center">
               <Link href="/ssg-posts/[id]" as={`/ssg-posts/${p.id}`}>
                 <a className="flex">
                   <span className="mr-4 bg-white rounded-full h-8 w-8 mb-3">
